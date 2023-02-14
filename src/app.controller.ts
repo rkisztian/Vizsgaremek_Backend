@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, Render } from '@nestjs/common';
+import { BadRequestException, Body, Controller, Get, Post, Render } from '@nestjs/common';
 import { DataSource } from 'typeorm';
 import { AppService } from './app.service';
 import RegisterDto from './register.dto';
@@ -22,6 +22,9 @@ export class AppController {
     const userRepo = this.dataSource.getRepository(User);
     if (!newUser.registrationDate) {
       newUser.registrationDate = new Date();
+    }
+    if (newUser.password !== newUser.passwordAgain) {
+      throw new BadRequestException('A jelszó nem eggyezik')
     }
     await userRepo.save(newUser);
     return newUser;
