@@ -5,6 +5,7 @@ import {
   IsOptional,
   IsString,
   Matches,
+  MaxLength,
   MinLength,
 } from 'class-validator';
 import { ROXO } from './app.utils';
@@ -18,12 +19,14 @@ export default class RegisterDto {
   @IsEmail()
   email?: string;
 
-  @MinLength(8, 24)
+  @MinLength(8)
+  @MaxLength(24)
   @IsNotEmpty()
   @Matches(ROXO.PASSWORD_RULE, { message: ROXO.PASSWORD_MESSAGE })
   password?: string;
 
-  @MinLength(8, 24)
+  @MinLength(8)
+  @MaxLength(24)
   @IsNotEmpty()
   @Matches(ROXO.PASSWORD_RULE, { message: ROXO.PASSWORD_MESSAGE })
   passwordAgain?: string;
