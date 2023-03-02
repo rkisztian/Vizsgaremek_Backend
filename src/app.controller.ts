@@ -16,6 +16,7 @@ import { AppService } from './app.service';
 import RegisterDto from './register.dto';
 import User from './user.entity';
 import { AuthGuard } from '@nestjs/passport/dist';
+import * as bcrypt from 'bcrypt';
 
 @Controller()
 export class AppController {
@@ -39,8 +40,9 @@ export class AppController {
     if (newUser.password !== newUser.passwordAgain) {
       throw new BadRequestException('A két jelszónak egyeznie kell!');
     }
+    newUser.password = await bcrypt.hash(newUser.password, 10);
     await userRepo.save(newUser);
-    return newUser;
+    return newUser.registrationDate;
   }
 
   @Get('profile')
