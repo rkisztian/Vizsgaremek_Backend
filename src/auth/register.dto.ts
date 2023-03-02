@@ -8,7 +8,7 @@ import {
   MaxLength,
   MinLength,
 } from 'class-validator';
-import { ROXO } from './register.utils';
+import { ROXO } from 'src/register.utils';
 
 export default class RegisterDto {
   @IsNotEmpty()

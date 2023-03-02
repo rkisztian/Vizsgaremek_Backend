@@ -13,7 +13,6 @@ import {
 } from '@nestjs/common';
 import { DataSource, EntityNotFoundError } from 'typeorm';
 import { AppService } from './app.service';
-import RegisterDto from './register.dto';
 import User from './user.entity';
 import { AuthGuard } from '@nestjs/passport/dist';
 import * as bcrypt from 'bcrypt';
@@ -31,6 +30,7 @@ export class AppController {
     return { message: 'Welcome to the homepage' };
   }
 
+  /*
   @Post('/register')
   async registerUser(@Body() newUser: RegisterDto) {
     const userRepo = this.dataSource.getRepository(User);
@@ -44,6 +44,7 @@ export class AppController {
     await userRepo.save(newUser);
     return newUser.registrationDate;
   }
+  */
 
   @Get('profile')
   @UseGuards(AuthGuard('bearer'))
