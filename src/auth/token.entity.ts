@@ -3,10 +3,9 @@ import { Entity, ManyToOne, PrimaryColumn } from 'typeorm';
 
 @Entity()
 export default class Token {
-    @PrimaryColumn()
-    token: string;
+  @PrimaryColumn()
+  token: string;
 
-    @ManyToOne(() => User)
-    user: User;
-
+  @ManyToOne(() => User)
+  user: User;
 }

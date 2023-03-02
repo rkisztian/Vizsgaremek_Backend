@@ -3,6 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
+import Token from './auth/token.entity';
 import User from './user.entity';
 
 @Module({
@@ -13,8 +14,8 @@ import User from './user.entity';
       port: parseInt(process.env.DB_PORT) || 3306,
       username: process.env.DB_USERNAME || 'root',
       password: process.env.DB_PASSWORD || '',
-      database: process.env.DB_DATABASE || 'database',
-      entities: [User],
+      database: process.env.DB_DATABASE || 'sky_fitness',
+      entities: [User, Token],
       synchronize: true,
     }),
     AuthModule,
