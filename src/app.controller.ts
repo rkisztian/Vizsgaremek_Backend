@@ -1,8 +1,21 @@
-import { BadRequestException, Body, Controller, Get, NotFoundException, Param, Post, Query, Render } from '@nestjs/common';
+import {
+  BadRequestException,
+  Body,
+  Controller,
+  Get,
+  NotFoundException,
+  Param,
+  Post,
+  Query,
+  Render,
+  Request,
+  UseGuards,
+} from '@nestjs/common';
 import { DataSource, EntityNotFoundError } from 'typeorm';
 import { AppService } from './app.service';
 import RegisterDto from './register.dto';
 import User from './user.entity';
+import { AuthGuard } from '@nestjs/passport/dist';
 
 @Controller()
 export class AppController {
@@ -24,25 +37,20 @@ export class AppController {
       newUser.registrationDate = new Date();
     }
     if (newUser.password !== newUser.passwordAgain) {
-      throw new BadRequestException('A két jelszónak egyeznie kell!')
+      throw new BadRequestException('A két jelszónak egyeznie kell!');
     }
     await userRepo.save(newUser);
     return newUser;
   }
 
-  @Post('/login')
-  async searchUser(@Param('username') username: string){
-      try{
-        const userRepo = this.dataSource.getRepository(User);
-        return await userRepo.findOneByOrFail({ username: username});
-      } catch (e){
-        if (e instanceof EntityNotFoundError) {
-          throw new NotFoundException('Ezen a néven nincs regisztrálva fiók.')
-        }else{
-          throw e;
-        }
-    }
+  @Get('profile')
+  @UseGuards(AuthGuard('bearer'))
+  ownProfile(@Request() req) {
+    const user: User = req.user;
+    return {
+      email: user.email,
+      username: user.username,
+      registDate: user.registrationDate,
+    };
   }
-
-
 }
