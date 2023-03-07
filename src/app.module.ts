@@ -3,8 +3,12 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
-import Token from './auth/token.entity';
-import User from './user.entity';
+import EdzesNapok from './Entity/edzesnapok.entity';
+import Edzesterv from './Entity/edzesterv.entity';
+import Gyakorlat from './Entity/gyakorlat.entity';
+import Izomcsoportok from './Entity/izomcsoportok.entity';
+import Token from './Entity/token.entity';
+import User from './Entity/user.entity';
 
 @Module({
   imports: [
@@ -15,7 +19,7 @@ import User from './user.entity';
       username: process.env.DB_USERNAME || 'root',
       password: process.env.DB_PASSWORD || '',
       database: process.env.DB_DATABASE || 'sky_fitness',
-      entities: [User, Token],
+      entities: [User, Token, Edzesterv, EdzesNapok, Gyakorlat, Izomcsoportok],
       synchronize: true,
     }),
     AuthModule,

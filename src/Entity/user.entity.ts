@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, JoinTable, ManyToMany, PrimaryGeneratedColumn } from 'typeorm';
+import Edzesterv from './edzesterv.entity';
 
 @Entity()
 export default class User {
@@ -16,4 +17,8 @@ export default class User {
 
   @Column()
   registrationDate: Date;
+
+  @ManyToMany(() => Edzesterv, (edzesterv) => edzesterv.edzestervId)
+  @JoinTable()
+  edzesterv: Edzesterv;
 }

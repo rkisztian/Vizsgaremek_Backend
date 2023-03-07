@@ -8,7 +8,7 @@ import {
   MaxLength,
   MinLength,
 } from 'class-validator';
-import { ROXO } from 'src/register.utils';
+import { REGEX } from 'src/register.utils';
 
 export default class RegisterDto {
   @IsNotEmpty()
@@ -22,13 +22,13 @@ export default class RegisterDto {
   @MinLength(8)
   @MaxLength(24)
   @IsNotEmpty()
-  @Matches(ROXO.PASSWORD_RULE, { message: ROXO.PASSWORD_MESSAGE })
+  @Matches(REGEX.PASSWORD_RULE, { message: REGEX.PASSWORD_MESSAGE })
   password?: string;
 
   @MinLength(8)
   @MaxLength(24)
   @IsNotEmpty()
-  @Matches(ROXO.PASSWORD_RULE, { message: ROXO.PASSWORD_MESSAGE })
+  @Matches(REGEX.PASSWORD_RULE, { message: REGEX.PASSWORD_MESSAGE })
   passwordAgain?: string;
 
   @IsOptional()

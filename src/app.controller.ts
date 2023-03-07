@@ -13,7 +13,7 @@ import {
 } from '@nestjs/common';
 import { DataSource, EntityNotFoundError } from 'typeorm';
 import { AppService } from './app.service';
-import User from './user.entity';
+import User from './Entity/user.entity';
 import { AuthGuard } from '@nestjs/passport/dist';
 import * as bcrypt from 'bcrypt';
 

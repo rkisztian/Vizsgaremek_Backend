@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import User from 'src/user.entity';
+import User from 'src/Entity/user.entity';
 import * as crypto from 'crypto';
-import Token from './token.entity';
+import Token from '../Entity/token.entity';
 import { DataSource } from 'typeorm';
 
 @Injectable()

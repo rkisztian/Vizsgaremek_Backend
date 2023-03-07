@@ -6,7 +6,7 @@ import {
   BadRequestException,
 } from '@nestjs/common';
 import { DataSource } from 'typeorm';
-import User from 'src/user.entity';
+import User from 'src/Entity/user.entity';
 import { AuthService } from './auth.service';
 import * as bcrypt from 'bcrypt';
 import LoginDto from './login.dto';

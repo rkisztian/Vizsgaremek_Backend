@@ -4,7 +4,7 @@ const PASSWORD_RULE =
 const PASSWORD_MESSAGE =
   'A jelszó tartalmazzon kis és nagybetűket illetve számokat és speciális karaktereket!';
 
-export const ROXO = {
+export const REGEX = {
   PASSWORD_RULE,
   PASSWORD_MESSAGE,
 };
