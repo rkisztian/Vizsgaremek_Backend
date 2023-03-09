@@ -1,5 +1,6 @@
-import { Column, Entity, JoinTable, ManyToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, JoinTable, ManyToMany, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 import EdzesNapok from './edzesnapok.entity';
+import Izomcsoportok from './izomcsoportok.entity';
 
 @Entity()
 export default class Gyakorlat {
@@ -21,4 +22,7 @@ export default class Gyakorlat {
   @ManyToMany(() => EdzesNapok, (edzesnapok) => edzesnapok.edzesnapokId)
   @JoinTable()
   edzesnapok: EdzesNapok[];
+
+  @ManyToOne(() => Izomcsoportok, (izomcsoportok) => izomcsoportok.gyakorlat)
+  izomcsoport: Izomcsoportok[];
 }

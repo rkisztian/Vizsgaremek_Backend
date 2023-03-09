@@ -6,7 +6,7 @@ import UpdateEdzestervDto from './dto/updateedzesterv.dto';
 
 @Injectable()
 export class EdzestervService {
-  constructor(private dataSource: DataSource, edzesterv) {}
+  constructor(private dataSource: DataSource) {}
 
   async ujEdzesterv(createEdzestervDto: CreateEdzestervDto) {
     const edzestervRepo = this.dataSource.getRepository(Edzesterv);

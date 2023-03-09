@@ -1,4 +1,11 @@
-import { Controller, Get, UseGuards, Request, Body, Post } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  UseGuards,
+  Request,
+  Body,
+  Post,
+} from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import CreateEdzestervDto from './dto/createedzesterv.dto';
 import { EdzestervService } from './edzesterv.service';
@@ -7,13 +14,14 @@ import { EdzestervService } from './edzesterv.service';
 export class EdzestervController {
   constructor(private edzestervService: EdzestervService) {}
 
+  /*
   @UseGuards(AuthGuard('bearer'))
   @Post()
   createEdzesterv(@Body() createEdzestervDto : CreateEdzestervDto, @Request() req) {
-    return this.edzestervService.create
+    return this.edzestervService
   }
 
-
+*/
   @UseGuards(AuthGuard('bearer'))
   @Get('getAllEdzesterv')
   findallEdzesterv(@Request() req) {
