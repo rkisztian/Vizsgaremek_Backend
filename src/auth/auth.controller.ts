@@ -9,8 +9,8 @@ import { DataSource } from 'typeorm';
 import User from 'src/Entity/user.entity';
 import { AuthService } from './auth.service';
 import * as bcrypt from 'bcrypt';
-import LoginDto from './login.dto';
-import RegisterDto from './register.dto';
+import LoginDto from './dto/login.dto';
+import RegisterDto from './dto/register.dto';
 
 @Controller('auth')
 export class AuthController {

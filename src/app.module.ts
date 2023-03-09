@@ -3,6 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
+import { EdzestervModule } from './edzesterv/edzesterv.module';
 import EdzesNapok from './Entity/edzesnapok.entity';
 import Edzesterv from './Entity/edzesterv.entity';
 import Gyakorlat from './Entity/gyakorlat.entity';
@@ -23,6 +24,7 @@ import User from './Entity/user.entity';
       synchronize: true,
     }),
     AuthModule,
+    EdzestervModule,
   ],
   controllers: [AppController],
   providers: [AppService],

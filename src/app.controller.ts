@@ -30,22 +30,6 @@ export class AppController {
     return { message: 'Welcome to the homepage' };
   }
 
-  /*
-  @Post('/register')
-  async registerUser(@Body() newUser: RegisterDto) {
-    const userRepo = this.dataSource.getRepository(User);
-    if (!newUser.registrationDate) {
-      newUser.registrationDate = new Date();
-    }
-    if (newUser.password !== newUser.passwordAgain) {
-      throw new BadRequestException('A két jelszónak egyeznie kell!');
-    }
-    newUser.password = await bcrypt.hash(newUser.password, 10);
-    await userRepo.save(newUser);
-    return newUser.registrationDate;
-  }
-  */
-
   @Get('profile')
   @UseGuards(AuthGuard('bearer'))
   ownProfile(@Request() req) {
