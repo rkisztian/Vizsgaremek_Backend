@@ -14,14 +14,15 @@ import { EdzestervService } from './edzesterv.service';
 export class EdzestervController {
   constructor(private edzestervService: EdzestervService) {}
 
-  /*
   @UseGuards(AuthGuard('bearer'))
   @Post()
-  createEdzesterv(@Body() createEdzestervDto : CreateEdzestervDto, @Request() req) {
-    return this.edzestervService
+  createEdzesterv(
+    @Body() createEdzestervDto: CreateEdzestervDto,
+    @Request() req,
+  ) {
+    return this.edzestervService.create(createEdzestervDto, req.edzesterv);
   }
 
-*/
   @UseGuards(AuthGuard('bearer'))
   @Get('getAllEdzesterv')
   findallEdzesterv(@Request() req) {

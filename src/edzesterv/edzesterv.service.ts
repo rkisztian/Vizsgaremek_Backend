@@ -8,7 +8,7 @@ import UpdateEdzestervDto from './dto/updateedzesterv.dto';
 export class EdzestervService {
   constructor(private dataSource: DataSource) {}
 
-  async ujEdzesterv(createEdzestervDto: CreateEdzestervDto) {
+  async create(createEdzestervDto: CreateEdzestervDto) {
     const edzestervRepo = this.dataSource.getRepository(Edzesterv);
     const ujedzesterv = new Edzesterv();
     ujedzesterv.edzestervId = 0;
