@@ -4,6 +4,8 @@ import {
   Post,
   UnauthorizedException,
   BadRequestException,
+  UseGuards,
+  Delete,
 } from '@nestjs/common';
 import { DataSource } from 'typeorm';
 import User from 'src/Entity/user.entity';
@@ -11,6 +13,7 @@ import { AuthService } from './auth.service';
 import * as bcrypt from 'bcrypt';
 import LoginDto from './dto/login.dto';
 import RegisterDto from './dto/register.dto';
+import { AuthGuard } from '@nestjs/passport';
 
 @Controller('auth')
 export class AuthController {
@@ -37,6 +40,13 @@ export class AuthController {
     //logout = token törlése
 
     //register helye:
+  }
+
+  @UseGuards(AuthGuard('bearer'))
+  @Delete('logout')
+  async deletToken(@Headers('authorization') authHeader: string) {
+    const token = authHeader.split(' ')[1];
+    this.authService.logout(token);
   }
 
   @Post('register')

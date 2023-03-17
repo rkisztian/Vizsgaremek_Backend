@@ -4,6 +4,12 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import { EdzestervModule } from './edzesterv/edzesterv.module';
+import { EdzesnapokController } from './edzesnapok/edzesnapok.controller';
+import { EdzesnapokModule } from './edzesnapok/edzesnapok.module';
+import { GyakorlatService } from './gyakorlat/gyakorlat.service';
+import { IzomcsoportModule } from './izomcsoport/izomcsoport.module';
+import { IzomcsoportController } from './izomcsoport/izomcsoport.controller';
+import { GyakorlatModule } from './gyakorlat/gyakorlat.module';
 import EdzesNapok from './Entity/edzesnapok.entity';
 import Edzesterv from './Entity/edzesterv.entity';
 import Gyakorlat from './Entity/gyakorlat.entity';
@@ -25,8 +31,11 @@ import User from './Entity/user.entity';
     }),
     AuthModule,
     EdzestervModule,
+    EdzesnapokModule,
+    GyakorlatModule,
+    IzomcsoportModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [AppController, EdzesnapokController, IzomcsoportController],
+  providers: [AppService, GyakorlatService],
 })
 export class AppModule {}

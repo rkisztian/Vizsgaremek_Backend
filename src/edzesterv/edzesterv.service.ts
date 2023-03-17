@@ -23,15 +23,15 @@ export class EdzestervService {
     return await edzestervRepo.findBy(edzesterv);
   }
 
-  async findone(id: number) {
-    return '';
+  findone(id: number) {
+    return `This action returns a #${id} userAdress`;
   }
 
-  async update(id: number, updateEdzestervDto: UpdateEdzestervDto) {
-    return '';
+  update(id: number, updateEdzestervDto: UpdateEdzestervDto) {
+    return `This action returns a #${id} userAdress`;
   }
 
   remove(id: number) {
-    return '';
+    return `This action returns a #${id} userAdress`;
   }
 }

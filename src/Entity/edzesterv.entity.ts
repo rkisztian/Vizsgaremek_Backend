@@ -1,6 +1,13 @@
-import { Column, Entity, JoinTable, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  JoinTable,
+  ManyToMany,
+  ManyToOne,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 import EdzesNapok from './edzesnapok.entity';
-import User from './user.entity';
 
 @Entity()
 export default class Edzesterv {
