@@ -23,15 +23,22 @@ export class EdzestervService {
     return await edzestervRepo.findBy(edzesterv);
   }
 
-  findone(id: number) {
-    return `This action returns a #${id} userAdress`;
+  async findone(id: number) {
+    const edzestervRepo = this.dataSource.getRepository(Edzesterv);
+
+    return await edzestervRepo.findByOne(id);
   }
 
-  update(id: number, updateEdzestervDto: UpdateEdzestervDto) {
-    return `This action returns a #${id} userAdress`;
+  async update(id: number, updateEdzestervDto: UpdateEdzestervDto) {
+    const edzestervRepo = this.dataSource.getRepository(Edzesterv);
+    const updateedzesterv = new Edzesterv();
+    updateedzesterv.edzestervId = id;
+    updateedzesterv.name = updateEdzestervDto.name;
+    return await edzestervRepo.findBy(id);
   }
 
-  remove(id: number) {
-    return `This action returns a #${id} userAdress`;
+  async remove(id: number) {
+    const edzestervRepo = this.dataSource.getRepository(Edzesterv);
+    return await edzestervRepo.delete(id);
   }
 }
