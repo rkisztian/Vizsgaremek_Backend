@@ -10,6 +10,7 @@ import { GyakorlatService } from './gyakorlat/gyakorlat.service';
 import { IzomcsoportModule } from './izomcsoport/izomcsoport.module';
 import { IzomcsoportController } from './izomcsoport/izomcsoport.controller';
 import { GyakorlatModule } from './gyakorlat/gyakorlat.module';
+import { IzomcsoportokModule } from './izomcsoportok/izomcsoportok.module';
 import EdzesNapok from './Entity/edzesnapok.entity';
 import Edzesterv from './Entity/edzesterv.entity';
 import Gyakorlat from './Entity/gyakorlat.entity';
@@ -34,6 +35,7 @@ import User from './Entity/user.entity';
     EdzesnapokModule,
     GyakorlatModule,
     IzomcsoportModule,
+    IzomcsoportokModule,
   ],
   controllers: [AppController, EdzesnapokController, IzomcsoportController],
   providers: [AppService, GyakorlatService],

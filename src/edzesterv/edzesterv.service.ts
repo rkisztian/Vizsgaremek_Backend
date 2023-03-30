@@ -17,16 +17,12 @@ export class EdzestervService {
     await edzestervRepo.save(ujedzesterv);
   }
 
-  async findall(edzesterv) {
-    const edzestervRepo = this.dataSource.getRepository(Edzesterv);
-
-    return await edzestervRepo.findBy(edzesterv);
+  async findall() {
+    return await this.dataSource.getRepository(Edzesterv).find();
   }
 
-  async findone(id: number) {
-    const edzestervRepo = this.dataSource.getRepository(Edzesterv);
-
-    return await edzestervRepo.findByOne(id);
+  async findOne(id: number) {
+    return await this.dataSource.getRepository(Edzesterv).findBy({ id: id });
   }
 
   async update(id: number, updateEdzestervDto: UpdateEdzestervDto) {
@@ -34,7 +30,7 @@ export class EdzestervService {
     const updateedzesterv = new Edzesterv();
     updateedzesterv.edzestervId = id;
     updateedzesterv.name = updateEdzestervDto.name;
-    return await edzestervRepo.findBy(id);
+    edzestervRepo.save(updateedzesterv);
   }
 
   async remove(id: number) {
