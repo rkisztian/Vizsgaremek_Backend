@@ -17,12 +17,14 @@ export class EdzestervService {
     await edzestervRepo.save(ujedzesterv);
   }
 
-  async findall() {
+  async findAll() {
     return await this.dataSource.getRepository(Edzesterv).find();
   }
 
   async findOne(id: number) {
-    //return await this.dataSource.getRepository(Edzesterv).findBy({ id: id });
+    return await this.dataSource
+      .getRepository(Edzesterv)
+      .findBy({ edzestervId: id });
   }
 
   async update(id: number, updateEdzestervDto: UpdateEdzestervDto) {

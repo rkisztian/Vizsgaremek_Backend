@@ -1,14 +1,14 @@
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 import Gyakorlat from './gyakorlat.entity';
 
 @Entity()
 export default class Izomcsoportok {
   @PrimaryGeneratedColumn()
-  izomcsoportId: number;
+  izomcsoportokId: number;
 
   @Column()
   name: string;
 
-  @OneToMany(() => Gyakorlat, (gyakorlat) => gyakorlat.gyakorlatId)
+  @ManyToOne(() => Gyakorlat, (gyakorlat) => gyakorlat.gyakorlatId)
   gyakorlat: Gyakorlat[];
 }
