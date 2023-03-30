@@ -4,6 +4,6 @@ import { GyakorlatokController } from './gyakorlatok.controller';
 
 @Module({
   controllers: [GyakorlatokController],
-  providers: [GyakorlatokService]
+  providers: [GyakorlatokService],
 })
 export class GyakorlatokModule {}

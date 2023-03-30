@@ -22,7 +22,7 @@ export class EdzestervService {
   }
 
   async findOne(id: number) {
-    return await this.dataSource.getRepository(Edzesterv).findBy({ id: id });
+    //return await this.dataSource.getRepository(Edzesterv).findBy({ id: id });
   }
 
   async update(id: number, updateEdzestervDto: UpdateEdzestervDto) {

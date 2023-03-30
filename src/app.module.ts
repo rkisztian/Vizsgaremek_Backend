@@ -14,6 +14,12 @@ import Gyakorlat from './Entity/gyakorlat.entity';
 import Izomcsoportok from './Entity/izomcsoportok.entity';
 import Token from './Entity/token.entity';
 import User from './Entity/user.entity';
+import { IzomcsoportokController } from './izomcsoportok/izomcsoportok.controller';
+import { GyakorlatokService } from './gyakorlatok/gyakorlatok.service';
+import { IzomcsoportokService } from './izomcsoportok/izomcsoportok.service';
+import { EdzesnapokService } from './edzesnapok/edzesnapok.service';
+import { EdzestervService } from './edzesterv/edzesterv.service';
+import { EdzestervController } from './edzesterv/edzesterv.controller';
 
 @Module({
   imports: [
@@ -30,12 +36,23 @@ import User from './Entity/user.entity';
     AuthModule,
     EdzestervModule,
     EdzesnapokModule,
-    GyakorlatModule,
-    IzomcsoportModule,
+    GyakorlatokModule,
     IzomcsoportokModule,
     GyakorlatokModule,
   ],
-  controllers: [AppController, EdzesnapokController, IzomcsoportController],
-  providers: [AppService, GyakorlatService],
+  controllers: [
+    AppController,
+    EdzesnapokController,
+    IzomcsoportokController,
+    EdzestervController,
+    EdzesnapokController,
+  ],
+  providers: [
+    AppService,
+    GyakorlatokService,
+    IzomcsoportokService,
+    EdzesnapokService,
+    EdzestervService,
+  ],
 })
 export class AppModule {}

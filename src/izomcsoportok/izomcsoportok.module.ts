@@ -4,6 +4,6 @@ import { IzomcsoportokController } from './izomcsoportok.controller';
 
 @Module({
   controllers: [IzomcsoportokController],
-  providers: [IzomcsoportokService]
+  providers: [IzomcsoportokService],
 })
 export class IzomcsoportokModule {}

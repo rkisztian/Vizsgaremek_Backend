@@ -6,6 +6,7 @@ import {
   BadRequestException,
   UseGuards,
   Delete,
+  Headers,
 } from '@nestjs/common';
 import { DataSource } from 'typeorm';
 import User from 'src/Entity/user.entity';
