@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import EdzesNapok from 'src/Entity/edzesnapok.entity';
 import Edzesterv from 'src/Entity/edzesterv.entity';
 import { DataSource } from 'typeorm';
@@ -27,5 +27,23 @@ export class EdzesnapokService {
     const terv = await edzestervRepo.findOneBy({ edzestervId: edzestervid });
     nap.edzesterv = terv;
     return edzesnapRepo.save(nap);
+  }
+
+  async findAll() {
+    return await this.dataSource.getRepository(EdzesNapok).find();
+  }
+
+  async findOne(id: number) {
+    return await this.dataSource
+      .getRepository(EdzesNapok)
+      .findOneBy({ edzesnapokId: id });
+  }
+
+  async remove(id: number) {
+    const edzesnapRepo = this.dataSource.getRepository(EdzesNapok);
+    if (!(await edzesnapRepo.findOneBy({ edzesnapokId: id }))) {
+      throw new BadRequestException('Ilyen nap nincsen');
+    }
+    edzesnapRepo.delete(id);
   }
 }
