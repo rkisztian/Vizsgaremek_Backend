@@ -1,8 +1,12 @@
 //Validációt!!!
 
-import { IsEmpty } from 'class-validator';
+import { IsEmpty, IsString } from 'class-validator';
 
 export default class CreateEdzestervDto {
   @IsEmpty({ message: 'Nem lehet üres a mező' })
+  @IsString()
   name: string;
+
+  @IsString()
+  edzesnapok: string;
 }
