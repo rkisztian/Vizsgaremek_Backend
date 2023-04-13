@@ -1,3 +1,24 @@
+# What our backend can do
+
+This is our backend, which is linked to Sky Fitness.
+This backend is capable of CRUD operations.
+See the endpoints below.
+
+# Endpoints
+
+For the users
+```bash
+# Registration
+# List the users
+#
+```
+
+
+
+
+
+
+
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
 </p>

@@ -20,6 +20,7 @@ import { IzomcsoportokService } from './izomcsoportok/izomcsoportok.service';
 import { EdzesnapokService } from './edzesnapok/edzesnapok.service';
 import { EdzestervService } from './edzesterv/edzesterv.service';
 import { EdzestervController } from './edzesterv/edzesterv.controller';
+import { UserModule } from './user/user.module';
 
 @Module({
   imports: [
@@ -39,6 +40,7 @@ import { EdzestervController } from './edzesterv/edzesterv.controller';
     GyakorlatokModule,
     IzomcsoportokModule,
     GyakorlatokModule,
+    UserModule,
   ],
   controllers: [
     AppController,

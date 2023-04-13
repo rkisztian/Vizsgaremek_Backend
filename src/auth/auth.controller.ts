@@ -37,10 +37,6 @@ export class AuthController {
     return {
       token: await this.authService.generateTokenFor(user),
     };
-
-    //logout = token törlése
-
-    //register helye:
   }
 
   @UseGuards(AuthGuard('bearer'))
