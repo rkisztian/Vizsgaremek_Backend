@@ -7,13 +7,99 @@ See the endpoints below.
 # Endpoints
 
 For the users
+
 ```bash
-# Registration
-# List the users
-#
+# registration
+http://localhost:3000/auth/register
+
+# list the users
+http://localhost:3000/user/list
+
+# find one by id
+http://localhost:3000/user/search/:id
+
+# update users by id
+http://localhost:3000/user/update/:id
+
+# delete user by id
+http://localhost:3000/user/delete/:id
 ```
 
+For the training plans
 
+```bash
+# create training plans
+http://localhost:3000/edzesterv/createEdzester
+
+# list training plans
+http://localhost:3000/edzesterv/list
+
+# search one training plan by id
+http://localhost:3000/edzesterv/search/:id
+
+# update training plan by id
+http://localhost:3000/edzesterv/update/:id
+
+# delete training plan by id
+http://localhost:3000/edzesterv/delete/:id
+```
+
+For the training days
+
+```bash
+# create training day
+http://localhost:3000/edzesnapok/edzesnapcreate
+
+# list training days
+http://localhost:3000/edzesnapok/list
+
+# search training day
+http://localhost:3000/edzesnapok/search/:id
+
+# update training day
+http://localhost:3000/edzesnapok/update/:id
+
+# delete training day
+http://localhost:3000/edzesnapok/delete/:id
+```
+
+For the exercises
+```bash
+# create exercises
+http://localhost:3000/gyakorlatok/create
+
+# list exercises
+http://localhost:3000/gyakorlatok/list
+
+# find exercise
+http://localhost:3000/gyakorlatok/search/:id
+
+# update exercises
+http://localhost:3000/gyakorlatok/update/:id
+
+# delete exercises
+http://localhost:3000/gyakorlatok/delete/:id
+```
+
+For the muscle groups
+```bash
+
+# create muscle groups
+http://localhost:3000/izomcsoportok/create
+
+# list muscle groups
+http://localhost:3000/izomcsoportok/list
+
+# find muscle group
+http://localhost:3000/izomcsoportok/search/:id
+
+# update muscle groups
+http://localhost:3000/izomcsoportok/update/:id
+
+# delete muscle groups
+http://localhost:3000/izomcsoportok/delete/:id
+
+```
 
 
 

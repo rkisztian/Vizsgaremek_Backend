@@ -16,22 +16,22 @@ import CreateIzomcsoportokDto from './dto/create-izomcsoportok.dto';
 export class IzomcsoportokController {
   constructor(private readonly izomcsoportokService: IzomcsoportokService) {}
 
-  @Post()
+  @Post('create')
   create(@Body() createIzomcsoportokDto: CreateIzomcsoportokDto) {
     return this.izomcsoportokService.create(createIzomcsoportokDto);
   }
 
-  @Get()
+  @Get('list')
   findAll() {
     return this.izomcsoportokService.findAll();
   }
 
-  @Get(':id')
+  @Get('search/:id')
   findOne(@Param('id') id: string) {
     return this.izomcsoportokService.findOne(+id);
   }
 
-  @Patch(':id')
+  @Patch('update/:id')
   update(
     @Param('id') id: string,
     @Body() updateIzomcsoportokDto: UpdateIzomcsoportokDto,
@@ -39,7 +39,7 @@ export class IzomcsoportokController {
     return this.izomcsoportokService.update(+id, updateIzomcsoportokDto);
   }
 
-  @Delete(':id')
+  @Delete('delete/:id')
   remove(@Param('id') id: string) {
     return this.izomcsoportokService.remove(+id);
   }

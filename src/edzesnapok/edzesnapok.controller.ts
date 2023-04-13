@@ -11,12 +11,12 @@ export class EdzesnapokController {
     return this.edzesnapService.create(createedzesNap);
   }
 
-  @Get('allnap')
+  @Get('list')
   findALl() {
     return this.edzesnapService.findAll();
   }
 
-  @Get(':id')
+  @Get('search/:id')
   findOne(@Param('id') id: string) {
     return this.edzesnapService.findOne(+id);
   }
@@ -30,7 +30,7 @@ export class EdzesnapokController {
   }
   */
 
-  @Delete(':id')
+  @Delete('delete/:id')
   remove(@Param('id') id: string) {
     return this.edzesnapService.remove(+id);
   }

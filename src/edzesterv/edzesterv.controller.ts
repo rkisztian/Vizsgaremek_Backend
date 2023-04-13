@@ -23,17 +23,17 @@ export class EdzestervController {
     return this.edzestervService.create(createEdzestervDto);
   }
 
-  @Get()
+  @Get('list')
   findAll() {
     return this.edzestervService.findAll();
   }
 
-  @Get(':id')
+  @Get('search/:id')
   findOne(@Param('id') id: string) {
     return this.edzestervService.findOne(+id);
   }
 
-  @Patch(':id')
+  @Patch('update/:id')
   update(
     @Param('id') id: string,
     @Body() updateEdzestervDto: UpdateEdzestervDto,
@@ -41,7 +41,7 @@ export class EdzestervController {
     return this.edzestervService.update(+id, updateEdzestervDto);
   }
 
-  @Delete(':id')
+  @Delete('delete/:id')
   remove(@Param('id') id: string) {
     return this.edzestervService.remove(+id);
   }
