@@ -18,18 +18,15 @@ export default class Gyakorlat {
   name: string;
 
   @Column()
-  picture: string;
-
-  @Column()
-  video: string;
+  media: string;
 
   @Column()
   description: string;
 
   @ManyToMany(() => EdzesNapok, (edzesnapok) => edzesnapok.edzesnapokId)
   @JoinTable()
-  edzesnapok: EdzesNapok[];
+  edzesnapok: EdzesNapok;
 
   @OneToMany(() => Izomcsoportok, (izomcsoportok) => izomcsoportok.gyakorlat)
-  izomcsoport: Izomcsoportok[];
+  izomcsoport: Izomcsoportok;
 }

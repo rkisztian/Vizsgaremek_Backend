@@ -12,6 +12,14 @@ export class GyakorlatokController {
     return this.gyakorlatokService.create(createGyakorlatokDto);
   }
 
+  @Post(':gyakorlatid/giveto/napid')
+  gyakorlatAddtoEdzesNap(
+    @Param('gyakorlatid') gyakorlatid : number,
+    @Param('napid') napid : number,
+  ){
+    return this.gyakorlatokService.gyakorlatAddtoEdzesNap(gyakorlatid, napid);
+  }
+
   @Get('list')
   findAll() {
     return this.gyakorlatokService.findAll();

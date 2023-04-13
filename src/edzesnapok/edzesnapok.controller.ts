@@ -11,6 +11,14 @@ export class EdzesnapokController {
     return this.edzesnapService.create(createedzesNap);
   }
 
+  @Post(':napid/giveto/edzestervid')
+  napAddtoEdzesterv(
+    @Param('napid') napid: number,
+    @Param('edzestervid') edzestervid : number,
+  ) {
+    return this.edzesnapService.napAddtoEdzesterv(napid, edzestervid);
+  }
+
   @Get('list')
   findALl() {
     return this.edzesnapService.findAll();

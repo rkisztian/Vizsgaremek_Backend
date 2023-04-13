@@ -10,5 +10,5 @@ export default class Izomcsoportok {
   name: string;
 
   @ManyToOne(() => Gyakorlat, (gyakorlat) => gyakorlat.gyakorlatId)
-  gyakorlat: Gyakorlat[];
+  gyakorlat: Gyakorlat;
 }

@@ -12,8 +12,8 @@ export class UserService {
     return await this.dataSource.getRepository(User).find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} user`;
+  async findOne(id: number) {
+    return await this.dataSource.getRepository(User).findBy({ id: id});
   }
 
   async update(id: number, updateUserDto: UpdateUserDto) {

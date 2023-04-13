@@ -21,6 +21,14 @@ export class IzomcsoportokController {
     return this.izomcsoportokService.create(createIzomcsoportokDto);
   }
 
+  @Post(':izomid/giveto/gyakorlatid')
+  izomcsoportAddToGyakorlat(
+    @Param('izomid') izomid : number,
+    @Param('gyakorlatid') gyakorlatid : number,
+  ){
+    return this.izomcsoportokService.izomcsoportAddToGyakorlat(izomid, gyakorlatid);
+  }
+
   @Get('list')
   findAll() {
     return this.izomcsoportokService.findAll();

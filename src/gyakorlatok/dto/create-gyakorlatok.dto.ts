@@ -6,9 +6,8 @@ export default class CreateGyakorlatokDto {
   @IsNotEmpty()
   name: string;
 
-  picture: string;
 
-  video: string;
+  media: string;
 
   @IsString()
   @IsNotEmpty()
