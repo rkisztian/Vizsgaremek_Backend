@@ -1,7 +1,7 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
 import { GyakorlatokService } from './gyakorlatok.service';
-import { CreateGyakorlatokDto } from './dto/create-gyakorlatok.dto';
 import { UpdateGyakorlatokDto } from './dto/update-gyakorlatok.dto';
+import CreateGyakorlatokDto from './dto/create-gyakorlatok.dto';
 
 @Controller('gyakorlatok')
 export class GyakorlatokController {

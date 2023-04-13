@@ -8,8 +8,9 @@ import {
   Delete,
 } from '@nestjs/common';
 import { IzomcsoportokService } from './izomcsoportok.service';
-import { CreateIzomcsoportokDto } from './dto/create-izomcsoportok.dto';
+
 import { UpdateIzomcsoportokDto } from './dto/update-izomcsoportok.dto';
+import CreateIzomcsoportokDto from './dto/create-izomcsoportok.dto';
 
 @Controller('izomcsoportok')
 export class IzomcsoportokController {

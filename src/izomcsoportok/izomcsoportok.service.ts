@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { CreateIzomcsoportokDto } from './dto/create-izomcsoportok.dto';
 import { UpdateIzomcsoportokDto } from './dto/update-izomcsoportok.dto';
+import CreateIzomcsoportokDto from './dto/create-izomcsoportok.dto';
 
 @Injectable()
 export class IzomcsoportokService {

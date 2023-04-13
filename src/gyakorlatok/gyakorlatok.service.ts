@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { CreateGyakorlatokDto } from './dto/create-gyakorlatok.dto';
 import { UpdateGyakorlatokDto } from './dto/update-gyakorlatok.dto';
+import CreateGyakorlatokDto from './dto/create-gyakorlatok.dto';
 
 @Injectable()
 export class GyakorlatokService {

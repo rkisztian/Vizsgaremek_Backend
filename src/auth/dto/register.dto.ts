@@ -11,21 +11,21 @@ import {
 import { REGEX } from 'src/register.utils';
 
 export default class RegisterDto {
-  @IsNotEmpty()
+  @IsNotEmpty({message: "A név nem lehet üres!"})
   @IsString()
   username?: string;
 
-  @IsNotEmpty()
-  @IsEmail()
+  @IsNotEmpty({message: "Az email cím nem lehet üres!"})
+  @IsEmail( {}, {message: "Ez az email cím nem megfelelő!"} )
   email?: string;
 
-  @MinLength(8)
+  
   @MaxLength(24)
   @IsNotEmpty()
   @Matches(REGEX.PASSWORD_RULE, { message: REGEX.PASSWORD_MESSAGE })
   password?: string;
 
-  @MinLength(8)
+  
   @MaxLength(24)
   @IsNotEmpty()
   @Matches(REGEX.PASSWORD_RULE, { message: REGEX.PASSWORD_MESSAGE })

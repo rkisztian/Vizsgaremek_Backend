@@ -1,16 +1,17 @@
-import { IsString } from 'class-validator';
+import { IsNotEmpty, IsString } from 'class-validator';
 
 export default class CreateGyakorlatokDto {
+  
   @IsString()
+  @IsNotEmpty()
   name: string;
 
-  @IsString()
   picture: string;
 
-  @IsString()
   video: string;
 
   @IsString()
+  @IsNotEmpty()
   description: string;
 
   @IsString()
