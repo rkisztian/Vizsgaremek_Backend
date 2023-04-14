@@ -3,6 +3,7 @@ import EdzesNapok from 'src/Entity/edzesnapok.entity';
 import Edzesterv from 'src/Entity/edzesterv.entity';
 import { DataSource } from 'typeorm';
 import CreateEdzesNapDto from './dto/createedzesnap.dto';
+import { UpdateEdzesNapDto } from './dto/updateedzesnap.dto';
 
 @Injectable()
 export class EdzesnapokService {
@@ -37,6 +38,14 @@ export class EdzesnapokService {
     return await this.dataSource
       .getRepository(EdzesNapok)
       .findOneBy({ edzesnapokId: id });
+  }
+
+  async update(id: number, updateedzesNapdto: UpdateEdzesNapDto) {
+    const edzesnapRepo = await this.dataSource.getRepository(EdzesNapok);
+    const updateedzesnap = new EdzesNapok();
+    updateedzesnap.edzesnapokId = id;
+    updateedzesnap.name = updateedzesNapdto.name;
+    edzesnapRepo.save(updateedzesnap);
   }
 
   async remove(id: number) {
