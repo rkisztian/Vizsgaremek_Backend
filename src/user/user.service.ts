@@ -32,6 +32,10 @@ export class UserService {
     userRepo.save(userUpdate);
   }
 
+  async getProfile(req){
+    return req.user
+  }
+
    async remove(id: number) {
     const userRepo = this.dataSource.getRepository(User);
     if(!(await userRepo.findOneBy({id : id}))) {

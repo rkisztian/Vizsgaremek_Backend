@@ -59,4 +59,12 @@ export class AuthController {
     await userRepo.save(newUser);
     return newUser.registrationDate;
   }
+
+  @UseGuards(AuthGuard('bearer'))
+  @Delete('logout')
+  async (@Headers('authorization') authHeader: string){
+    const token = authHeader.split(' ')[1];
+        this.authService.logout(token)
+  }
+
 }

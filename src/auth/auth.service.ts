@@ -1,8 +1,9 @@
-import { Injectable } from '@nestjs/common';
+import { Delete, Injectable,} from '@nestjs/common';
 import User from 'src/Entity/user.entity';
 import * as crypto from 'crypto';
 import Token from '../Entity/token.entity';
 import { DataSource } from 'typeorm';
+import { AuthGuard } from '@nestjs/passport';
 
 @Injectable()
 export class AuthService {
@@ -34,10 +35,11 @@ export class AuthService {
 
   async logout(token) {
     const tokenRepo = this.dataSource.getRepository(Token);
-    const tokenObj = await tokenRepo.findOne({
-      where: { token },
-      relations: { user: true },
-    });
-    await tokenRepo.delete(tokenObj);
-  }
+    const tokenObj =  await tokenRepo.findOne({where: {token}, 
+        relations : {user: true}
+     });
+    await tokenRepo.delete(tokenObj)
+  
 }
+}
+
