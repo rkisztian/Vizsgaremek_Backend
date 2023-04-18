@@ -40,8 +40,12 @@ export class GyakorlatokService {
     return await this.dataSource.getRepository(Gyakorlat).findBy({ gyakorlatId : id  });
   }
 
-  update(id: number, updateGyakorlatokDto: UpdateGyakorlatokDto) {
-    return `This action updates a #${id} gyakorlatok`;
+  async update(id: number, updateGyakorlatokDto: UpdateGyakorlatokDto) {
+    const gyakorlatRepo = this.dataSource.getRepository(Gyakorlat);
+    const updategyakorlat = new Gyakorlat();
+    updategyakorlat.gyakorlatId = id;
+    updategyakorlat.name = updateGyakorlatokDto.name;
+    gyakorlatRepo.save(updategyakorlat);
   }
 
   async remove(id: number) {

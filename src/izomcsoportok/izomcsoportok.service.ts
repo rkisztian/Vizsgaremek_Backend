@@ -38,8 +38,12 @@ export class IzomcsoportokService {
     return await this.dataSource.getRepository(Izomcsoportok).findBy({ izomcsoportokId: id });
   }
 
-  update(id: number, updateIzomcsoportokDto: UpdateIzomcsoportokDto) {
-    return `This action updates a #${id} izomcsoportok`;
+  async update(id: number, updateIzomcsoportokDto: UpdateIzomcsoportokDto) {
+    const izomcsoportRepo = this.dataSource.getRepository(Izomcsoportok);
+    const updateizomcscoport = new Izomcsoportok();
+    updateizomcscoport.izomcsoportokId = id;
+    updateizomcscoport.name = updateIzomcsoportokDto.name;
+    izomcsoportRepo.save(updateizomcscoport);
   }
 
   async remove(id: number) {
