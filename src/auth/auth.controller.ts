@@ -15,6 +15,7 @@ import * as bcrypt from 'bcrypt';
 import LoginDto from './dto/login.dto';
 import RegisterDto from './dto/register.dto';
 import { AuthGuard } from '@nestjs/passport';
+import { ApiOperation } from '@nestjs/swagger';
 
 @Controller('auth')
 export class AuthController {
@@ -24,6 +25,9 @@ export class AuthController {
   ) {}
 
   @Post('login')
+  @ApiOperation({
+    description: 'Bejelentkezteti a felhasználót és egy tokent hozz létre',
+  })
   async login(@Body() loginData: LoginDto) {
     const userRepo = this.dataSource.getRepository(User);
     const user = await userRepo.findOneBy({ email: loginData.email });
@@ -39,14 +43,10 @@ export class AuthController {
     };
   }
 
-  @UseGuards(AuthGuard('bearer'))
-  @Delete('logout')
-  async deletToken(@Headers('authorization') authHeader: string) {
-    const token = authHeader.split(' ')[1];
-    this.authService.logout(token);
-  }
-
   @Post('register')
+  @ApiOperation({
+    description: 'Regisztrál egy új felhasználót.',
+  })
   async registerUser(@Body() newUser: RegisterDto) {
     const userRepo = this.dataSource.getRepository(User);
     if (!newUser.registrationDate) {
@@ -62,9 +62,11 @@ export class AuthController {
 
   @UseGuards(AuthGuard('bearer'))
   @Delete('logout')
-  async (@Headers('authorization') authHeader: string){
+  @ApiOperation({
+    description: 'Kijelntkezteti a felhasználót.',
+  })
+  async(@Headers('authorization') authHeader: string) {
     const token = authHeader.split(' ')[1];
-        this.authService.logout(token)
+    this.authService.logout(token);
   }
-
 }
