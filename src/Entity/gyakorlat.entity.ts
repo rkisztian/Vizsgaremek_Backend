@@ -20,7 +20,7 @@ export default class Gyakorlat {
   @Column()
   media: string;
 
-  @Column()
+  @Column("varchar", { length: 5000 })
   description: string;
 
   @ManyToMany(() => EdzesNapok, (edzesnapok) => edzesnapok.edzesnapokId)
