@@ -43,6 +43,13 @@ export class AuthController {
     };
   }
 
+  @UseGuards(AuthGuard('bearer'))
+  @Post('finduser')
+  async finduser(@Headers('authorization') authHeader: string) {
+    const token = authHeader.split(' ')[1];
+    return this.authService.findUserByToken(token);
+  }
+
   @Post('register')
   @ApiOperation({
     description: 'Regisztrál egy új felhasználót.',
