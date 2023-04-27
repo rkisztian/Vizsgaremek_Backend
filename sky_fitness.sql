@@ -54,7 +54,7 @@ CREATE TABLE `gyakorlat` (
   `gyakorlatId` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `media` varchar(255) NOT NULL,
-  `description` varchar(255) NOT NULL
+  `description` varchar(5000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
