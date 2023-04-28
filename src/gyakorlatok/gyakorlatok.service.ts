@@ -31,6 +31,14 @@ export class GyakorlatokService {
     gyakorlat.edzesnapok = nap;
     return gyakorlatRepo.save(gyakorlat)
   }
+  async gyakorlatidByNapId(napid: number) {
+    const gyakorlatRepo = this.dataSource.getRepository(Gyakorlat);
+    const getgyakorlat = await gyakorlatRepo.find({
+      relations : { edzesnapok: true},
+      where : { edzesnapok : {edzesnapokId : napid}}
+    });
+    return getgyakorlat;
+  }
 
   async findAll() {
     return await this.dataSource.getRepository(Gyakorlat).find();
