@@ -38,6 +38,15 @@ export class GyakorlatokController {
     return this.gyakorlatokService.findOne(+id);
   }
 
+  @Get('gyakorlatid/bynapid/:napid')
+  @ApiOperation({description: 'Visszaadd több gyakorlatID-t napID alapján'})
+  @ApiParam({ name: 'napid', description: 'Edzésnap azonosítója.'})
+  gyakorlatidByNapidId(
+    @Param('napid') napid: number,
+  ){
+    return this.gyakorlatokService.gyakorlatidByNapId(napid);
+  }
+
   @Patch('update/:id')
   @ApiOperation({ description: 'Módosítja a megadott gyakorlat adatait.' })
   @ApiParam({ name: 'id', description: 'Gyakorlat azonosítója.' })
